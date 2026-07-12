@@ -16,6 +16,14 @@ if (nav) {
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Hauteur réelle de la nav (variable selon l'écran) pour éviter tout
+  // décalage/bande blanche entre la nav fixe et le bandeau qui suit
+  const setNavHeight = () => {
+    document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+  };
+  setNavHeight();
+  window.addEventListener('resize', setNavHeight, { passive: true });
 }
 
 /* ---------- Menu mobile ---------- */
