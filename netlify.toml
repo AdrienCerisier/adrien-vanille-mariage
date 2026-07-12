@@ -1,0 +1,26 @@
+# =========================================================
+#  Configuration Netlify
+# =========================================================
+
+[build]
+  # On publie tout le dépôt tel quel (site statique, pas de build)
+  publish = "."
+  functions = "netlify/functions"
+
+# La page d'accueil est dans un sous-dossier (Front/HTML/Index.html).
+# On redirige la racine du site vers cette page.
+[[redirects]]
+  from = "/"
+  to = "/Front/HTML/Index.html"
+  status = 302
+  force = true
+
+# Petites URL « propres » optionnelles (facultatif)
+[[redirects]]
+  from = "/rsvp"
+  to = "/Front/HTML/rsvp.html"
+  status = 302
+[[redirects]]
+  from = "/infos"
+  to = "/Front/HTML/infos.html"
+  status = 302

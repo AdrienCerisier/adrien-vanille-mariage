@@ -1,0 +1,533 @@
+/* =========================================================
+   ÉLÉMENTS DÉCORATEURS PNG — Placement sur le site
+   ========================================================= */
+
+/* ── Éléments décorateurs généraux ── */
+.deco-png {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  /* La parallaxe (scroll + souris) passe par transform ; les animations
+     d'ambiance (float/sway) passent par translate/rotate (propriétés
+     individuelles) pour ne jamais entrer en conflit avec la parallaxe. */
+  transform: translate3d(var(--mx, 0px), calc(var(--py, 0px) + var(--my, 0px)), 0);
+  transition: transform .3s ease-out;
+  will-change: transform, translate, rotate;
+  animation: float 5s ease-in-out infinite;
+}
+
+.deco-png.sway {
+  animation: sway 4s ease-in-out infinite;
+}
+
+/* =========================================================
+   HERO — Éléments au-dessus et autour
+   ========================================================= */
+
+/* Agrume jaune haut gauche (sous la nav) */
+.deco-agrume-jaune-hero {
+  top: 130px;
+  left: 40px;
+  width: 130px;
+  height: auto;
+  animation: float 5.2s ease-in-out infinite;
+}
+
+/* Agrume rose haut droite (sous la nav) */
+.deco-agrume-rose-hero {
+  top: 150px;
+  right: 50px;
+  width: 120px;
+  height: auto;
+  animation: float 5.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* Branches basses du hero */
+.deco-branche-verte-hero {
+  bottom: 60px;
+  left: 40px;
+  width: 150px;
+  height: auto;
+  animation: sway 5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+.deco-branche-rose-hero {
+  bottom: 70px;
+  right: 40px;
+  width: 140px;
+  height: auto;
+  animation: sway 4.6s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+.deco-agrume-vert-hero {
+  bottom: 40px;
+  left: 50%;
+  margin-left: -55px;
+  width: 90px;
+  height: auto;
+  opacity: .9;
+  animation: float 5.6s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+/* =========================================================
+   INTRO SECTION — Branches sur les côtés
+   ========================================================= */
+
+/* Grande branche verte gauche */
+.deco-branche-verte-intro {
+  position: absolute;
+  left: -80px;
+  top: 150px;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  animation: sway 4.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+/* Grande branche rose droite */
+.deco-branche-rose-intro {
+  position: absolute;
+  right: -80px;
+  top: 200px;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  animation: sway 4.5s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+/* =========================================================
+   QUICKLINKS SECTION — Éléments au-dessus des cartes
+   ========================================================= */
+
+/* Petite couronne orange top */
+.deco-couronne-quick-big {
+  top: -105px;
+  left: 50%;
+  margin-left: -85px;
+  width: 165px;
+  height: auto;
+  z-index: 1;
+  opacity: .9;
+  animation: float 6.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+.deco-couronne-orange-quick {
+  top: -70px;
+  left: 50%;
+  margin-left: -90px;
+  width: 180px;
+  height: auto;
+  animation: float 5.8s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+/* Agrume orange coin gauche */
+.deco-agrume-orange-quick-left {
+  top: 30px;
+  left: -40px;
+  width: 120px;
+  height: auto;
+  animation: float 5s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+/* Agrume rouge coin droit */
+.deco-agrume-rouge-quick-right {
+  top: 60px;
+  right: -40px;
+  width: 120px;
+  height: auto;
+  animation: float 5.3s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+/* =========================================================
+   STORY SECTION — Timeline décoration
+   ========================================================= */
+
+/* Petite branche verte gauche */
+.deco-branche-petite-verte-story {
+  left: -50px;
+  top: 100px;
+  width: 150px;
+  height: auto;
+  animation: sway 3.8s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* Branche groseille droite */
+.deco-branche-groseille-story {
+  right: -60px;
+  top: 250px;
+  width: 180px;
+  height: auto;
+  animation: sway 4.2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* =========================================================
+   DETAILS SECTION (Jour J) — Accent supérieur
+   ========================================================= */
+
+/* Petite branche rose top */
+.deco-branche-petite-rose-details {
+  top: -40px;
+  right: 60px;
+  width: 140px;
+  height: auto;
+  animation: sway 3.6s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+/* Agrume vert coin */
+.deco-agrume-vert-details {
+  top: 50px;
+  left: -50px;
+  width: 110px;
+  height: auto;
+  animation: float 4.8s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+/* =========================================================
+   FAQ SECTION — Éléments légers
+   ========================================================= */
+
+/* Petite couronne orange bas */
+.deco-couronne-orange-faq {
+  bottom: 80px;
+  right: -40px;
+  width: 160px;
+  height: auto;
+  animation: float 5.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* Agrume jaune coin */
+.deco-agrume-jaune-faq {
+  top: 100px;
+  left: -40px;
+  width: 115px;
+  height: auto;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* =========================================================
+   RSVP SECTION — Couronne focus
+   ========================================================= */
+
+/* Grande couronne d'agrumes au top */
+.deco-couronne-rsvp {
+  top: -80px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: auto;
+  animation: float 6.2s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+/* Branches encadrantes */
+.deco-branche-verte-rsvp-left {
+  left: -70px;
+  bottom: 150px;
+  width: 200px;
+  height: auto;
+  animation: sway 4.8s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.deco-branche-rose-rsvp-right {
+  right: -70px;
+  bottom: 150px;
+  width: 200px;
+  height: auto;
+  animation: sway 4.8s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* =========================================================
+   FOOTER — Disposition symétrique : branches en haut, agrumes en bas
+   ========================================================= */
+.deco-agrume-orange-footer-left {
+  position: absolute;
+  bottom: 30px;
+  left: 42px;
+  width: 110px;
+  height: auto;
+  z-index: 2;
+  animation: float 5.4s ease-in-out infinite;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+.deco-agrume-rose-footer-right {
+  position: absolute;
+  bottom: 30px;
+  right: 42px;
+  width: 110px;
+  height: auto;
+  z-index: 2;
+  animation: float 5.4s ease-in-out infinite;
+  animation-delay: 0.4s;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+.deco-branche-footer-left {
+  position: absolute;
+  top: 28px;
+  left: 26px;
+  width: 130px;
+  height: auto;
+  z-index: 2;
+  animation: sway 4.8s ease-in-out infinite;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+.deco-branche-footer-right {
+  position: absolute;
+  top: 28px;
+  right: 26px;
+  width: 130px;
+  height: auto;
+  z-index: 2;
+  animation: sway 4.8s ease-in-out infinite;
+  animation-delay: 0.45s;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+/* Élément central retiré (asymétrique) */
+.deco-agrume-footer-mid { display: none; }
+
+/* =========================================================
+   PAGE HERO (pages internes) — Petits accents
+   ========================================================= */
+
+.pagehero {
+  position: relative;
+  overflow: visible;
+}
+
+.deco-agrume-corner-pagehero {
+  position: absolute;
+  top: calc(var(--nav-h) + 14px);
+  right: 40px;
+  width: 96px;
+  height: auto;
+  z-index: 4;
+  animation: float 4.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+}
+.deco-branche-corner-pagehero {
+  position: absolute;
+  top: calc(var(--nav-h) + 6px);
+  left: 28px;
+  width: 120px;
+  height: auto;
+  z-index: 4;
+  animation: sway 4.8s ease-in-out infinite;
+  animation-delay: .3s;
+}
+
+/* =========================================================
+   ANIMATIONS RÉUTILISABLES
+   ========================================================= */
+
+@keyframes float {
+  0%, 100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  25% {
+    translate: 0 -10px;
+    rotate: 1deg;
+  }
+  75% {
+    translate: 0 10px;
+    rotate: -1deg;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    rotate: -2deg;
+  }
+  50% {
+    rotate: 2deg;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width: 1024px) {
+  .deco-png {
+    scale: 0.82;
+  }
+  
+  .deco-branche-verte-intro,
+  .deco-branche-rose-intro,
+  .deco-branche-petite-verte-story,
+  .deco-branche-groseille-story {
+    opacity: 0.8;
+  }
+}
+
+@media(max-width: 768px) {
+  /* Masquer certains éléments sur tablette */
+  .deco-branche-verte-rsvp-left,
+  .deco-branche-rose-rsvp-right,
+  .deco-branche-petite-rose-details,
+  .deco-agrume-vert-details {
+    display: none;
+  }
+  
+  /* Réduire les autres */
+  .deco-png {
+    scale: 0.68;
+  }
+  
+  .deco-couronne-hero {
+    width: 180px !important;
+  }
+}
+
+@media(max-width: 640px) {
+  /* Mobile : garder que l'essentiel */
+  .deco-branche-verte-intro,
+  .deco-branche-rose-intro,
+  .deco-branche-petite-verte-story,
+  .deco-branche-groseille-story,
+  .deco-branche-petite-rose-details,
+  .deco-agrume-vert-details,
+  .deco-branche-verte-rsvp-left,
+  .deco-branche-rose-rsvp-right,
+  .deco-couronne-orange-quick,
+  .deco-couronne-orange-faq {
+    display: none;
+  }
+  
+  /* Fruits réduits */
+  .deco-agrume-jaune-hero,
+  .deco-agrume-rose-hero,
+  .deco-agrume-orange-quick-left,
+  .deco-agrume-rouge-quick-right,
+  .deco-agrume-jaune-faq,
+  .deco-agrume-vert-details,
+  .deco-agrume-corner-pagehero,
+  .deco-branche-corner-pagehero {
+    width: 80px !important;
+  }
+
+  .deco-agrume-orange-footer-left,
+  .deco-agrume-rose-footer-right,
+  .deco-branche-footer-left,
+  .deco-branche-footer-right,
+  .deco-agrume-footer-mid,
+  .deco-branche-verte-hero,
+  .deco-branche-rose-hero,
+  .deco-prog-branche-verte,
+  .deco-prog-groseille,
+  .deco-gal-branche-verte,
+  .deco-gal-branche-rose,
+  .deco-gal-groseille,
+  .deco-faq-branche-verte,
+  .deco-faq-branche-rose {
+    display: none;
+  }
+  
+  .deco-couronne-hero {
+    width: 140px !important;
+    top: -40px !important;
+  }
+  
+  .deco-couronne-rsvp {
+    width: 180px !important;
+  }
+}
+
+/* =========================================================
+   UTILITAIRE — Contrôle général des décos
+   ========================================================= */
+
+/* Pour réduire l'opacité généralement */
+.deco-png.opacity-light {
+  opacity: 0.8;
+}
+
+.deco-png.opacity-lighter {
+  opacity: 0.6;
+}
+
+/* Pour augmenter les ombres */
+.deco-png.shadow-heavy {
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
+}
+
+/* =========================================================
+   DÉCORS DE SECTION SUPPLÉMENTAIRES (Jour J / Photos / FAQ)
+   Le contenu passe au-dessus pour éviter tout chevauchement.
+   ========================================================= */
+.programme .container,
+.galerie .container,
+.faq .container { position: relative; z-index: 2; }
+.quicklinks .section__eyebrow { margin-top: 1.6rem; }
+
+/* — Jour J : section programme (déroulé) — disposition symétrique gauche/droite — */
+.deco-prog-agrume-vert  { top: 70px; left: -28px; width: 110px; animation: float 5.4s ease-in-out infinite; }
+.deco-prog-agrume-jaune { top: 70px; right: -28px; width: 110px; animation: float 5.4s ease-in-out infinite; animation-delay: .25s; }
+.deco-prog-branche-verte{ top: 340px; left: -45px; width: 160px; animation-delay: .3s; }
+.deco-prog-branche-rose { top: 340px; right: -45px; width: 160px; animation-delay: .55s; }
+.deco-prog-groseille    { bottom: 170px; left: -15px; width: 110px; animation-delay: .2s; }
+.deco-prog-agrume-orange{ bottom: 180px; right: -22px; width: 115px; animation: float 5.8s ease-in-out infinite; animation-delay: .5s; }
+
+/* — Photos : section galerie — */
+.deco-gal-jaune { top: 360px; left: -30px; width: 100px; animation: float 5.6s ease-in-out infinite; }
+.deco-gal-vert { top: 520px; right: -28px; width: 95px; animation: float 6s ease-in-out infinite; animation-delay: .4s; }
+.deco-gal-branche-verte { bottom: 240px; left: -42px; width: 150px; animation-delay: .3s; }
+.deco-gal-branche-rose { bottom: 150px; right: -30px; width: 130px; animation-delay: .6s; }
+.deco-gal-groseille { top: 700px; left: 10px; width: 100px; animation-delay: .1s; }
+
+/* — FAQ — */
+.deco-faq-orange { top: 320px; right: -28px; width: 100px; animation: float 5.5s ease-in-out infinite; }
+.deco-faq-branche-verte { top: 500px; left: -42px; width: 150px; animation-delay: .3s; }
+.deco-faq-branche-rose { bottom: 280px; right: -32px; width: 110px; animation-delay: .5s; }
+.deco-faq-vert { bottom: 170px; left: -20px; width: 90px; animation: float 6.1s ease-in-out infinite; animation-delay: .2s; }
+
+/* Conteneur du séparateur avant footer */
+.deco-separateur-wrap {
+  text-align: center;
+  line-height: 0;
+  background: var(--creme);
+}
+.deco-separateur {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 36px auto;
+  opacity: .85;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Respecter les préférences de mouvement réduit */
+@media(prefers-reduced-motion: reduce) {
+  .deco-png {
+    animation: none !important;
+    translate: none !important;
+    rotate: none !important;
+    opacity: 0.7;
+  }
+}
