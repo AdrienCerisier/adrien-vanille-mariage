@@ -62,9 +62,8 @@
       <div class="form-wrapper">
         <div class="form-msg"></div>
 
-        <!-- Netlify Forms : data-netlify="true" + name="rsvp" + honeypot -->
-        <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="rsvp">
+        <!-- Envoyé en JSON à /api/rsvp (fonction serverless Vercel) ; honeypot anti-spam -->
+        <form name="rsvp" method="POST">
           <p class="hp"><label>Ne pas remplir : <input name="bot-field"></label></p>
 
           <div class="form-row">

@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "/Front/HTML/Index.html" },
+    { "source": "/rsvp", "destination": "/Front/HTML/rsvp.html" },
+    { "source": "/infos", "destination": "/Front/HTML/infos.html" }
+  ]
+}
