@@ -122,7 +122,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-/* ---------- Formulaire RSVP (Netlify Forms) ---------- */
+/* ---------- Formulaire RSVP (API Vercel /api/rsvp) ---------- */
 const form = document.querySelector('form[name="rsvp"]');
 
 /* Champs de noms dynamiques selon le nombre d'adultes / enfants */
@@ -159,7 +159,6 @@ if (form) {
   const msg = document.querySelector('.form-msg');
   const success = document.querySelector('.form-success');
   const submitBtn = document.getElementById('submit-btn');
-  const encode = data => Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -177,11 +176,12 @@ if (form) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Envoi en cours…';
     try {
-      await fetch('/', {
+      const res = await fetch('/api/rsvp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'rsvp', ...data }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
+      if (!res.ok) throw new Error('Request failed');
       form.style.display = 'none';
       if (success) success.classList.add('show');
       success?.scrollIntoView({ behavior: 'smooth', block: 'center' });
