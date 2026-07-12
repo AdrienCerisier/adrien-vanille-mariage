@@ -36,8 +36,9 @@ besoin de l'environnement Vercel pour s'exécuter).
    - `RESEND_API_KEY` — clé API d'un compte gratuit sur https://resend.com
    - `COUPLE_EMAIL` — adresse qui doit recevoir chaque réponse RSVP
      (ex. `adrien.et.vanille.mariage@gmail.com`)
-4. Déployez. Le `vercel.json` redirige la racine vers l'accueil et fournit
-   les URL courtes `/rsvp` et `/infos`.
+4. Déployez. Le `vercel.json` fait pointer discrètement `/`, `/rsvp`, `/infos`,
+   `/faq` et `/histoire` vers les pages HTML correspondantes (l'URL affichée
+   dans le navigateur reste propre, sans jamais montrer `/Front/HTML/...`).
 
 ## 📨 RSVP & e-mails
 Chaque envoi du formulaire RSVP appelle la fonction serverless `api/rsvp.js`, qui :
