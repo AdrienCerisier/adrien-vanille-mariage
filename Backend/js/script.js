@@ -132,6 +132,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 
 /* ---------- Formulaire RSVP (API Vercel /api/rsvp) ---------- */
 const form = document.querySelector('form[name="rsvp"]');
+const formLoadedAt = Date.now();
 
 /* Champs de noms dynamiques selon le nombre d'adultes / enfants */
 (function () {
@@ -174,6 +175,7 @@ if (form) {
     const fd = new FormData(form);
     const data = {};
     fd.forEach((v, k) => { data[k] = v; });
+    data.ts = formLoadedAt;
 
     if (!data.prenom || !data.nom || !data.email || !data.presence) {
       if (msg) { msg.className = 'form-msg err'; msg.textContent = 'Merci de renseigner vos prénom, nom, e-mail et présence.'; }

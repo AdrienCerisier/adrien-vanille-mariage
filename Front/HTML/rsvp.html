@@ -69,17 +69,17 @@
           <div class="form-row">
             <div class="form-group">
               <label for="prenom">Prénom <span class="req">*</span></label>
-              <input type="text" id="prenom" name="prenom" placeholder="Marie" required>
+              <input type="text" id="prenom" name="prenom" placeholder="Marie" maxlength="200" required>
             </div>
             <div class="form-group">
               <label for="nom">Nom <span class="req">*</span></label>
-              <input type="text" id="nom" name="nom" placeholder="Durand" required>
+              <input type="text" id="nom" name="nom" placeholder="Durand" maxlength="200" required>
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Adresse e-mail <span class="req">*</span></label>
-            <input type="email" id="email" name="email" placeholder="pour recevoir votre confirmation" required>
+            <input type="email" id="email" name="email" placeholder="pour recevoir votre confirmation" maxlength="200" required>
           </div>
 
           <div class="form-group">
@@ -105,31 +105,31 @@
           <div class="guest-block" id="adultes-names">
             <label class="guest-block__label">Noms des adultes</label>
             <div class="guest-fields">
-              <input type="text" name="adulte_1" data-idx="1" placeholder="Adulte 1 (vous)">
-              <input type="text" name="adulte_2" data-idx="2" placeholder="Adulte 2">
-              <input type="text" name="adulte_3" data-idx="3" placeholder="Adulte 3">
-              <input type="text" name="adulte_4" data-idx="4" placeholder="Adulte 4">
-              <input type="text" name="adulte_5" data-idx="5" placeholder="Adulte 5">
+              <input type="text" name="adulte_1" data-idx="1" placeholder="Adulte 1 (vous)" maxlength="200">
+              <input type="text" name="adulte_2" data-idx="2" placeholder="Adulte 2" maxlength="200">
+              <input type="text" name="adulte_3" data-idx="3" placeholder="Adulte 3" maxlength="200">
+              <input type="text" name="adulte_4" data-idx="4" placeholder="Adulte 4" maxlength="200">
+              <input type="text" name="adulte_5" data-idx="5" placeholder="Adulte 5" maxlength="200">
             </div>
           </div>
           <div class="guest-block" id="enfants-names" hidden>
             <label class="guest-block__label">Noms des enfants</label>
             <div class="guest-fields">
-              <input type="text" name="enfant_1" data-idx="1" placeholder="Enfant 1">
-              <input type="text" name="enfant_2" data-idx="2" placeholder="Enfant 2">
-              <input type="text" name="enfant_3" data-idx="3" placeholder="Enfant 3">
-              <input type="text" name="enfant_4" data-idx="4" placeholder="Enfant 4">
+              <input type="text" name="enfant_1" data-idx="1" placeholder="Enfant 1" maxlength="200">
+              <input type="text" name="enfant_2" data-idx="2" placeholder="Enfant 2" maxlength="200">
+              <input type="text" name="enfant_3" data-idx="3" placeholder="Enfant 3" maxlength="200">
+              <input type="text" name="enfant_4" data-idx="4" placeholder="Enfant 4" maxlength="200">
             </div>
           </div>
 
           <div class="form-group">
             <label for="regime">Régime alimentaire / allergies</label>
-            <input type="text" id="regime" name="regime" placeholder="Végétarien, sans gluten, allergies…">
+            <input type="text" id="regime" name="regime" placeholder="Végétarien, sans gluten, allergies…" maxlength="200">
           </div>
 
           <div class="form-group">
             <label for="message">Un petit mot pour les mariés ✦</label>
-            <textarea id="message" name="message" placeholder="Laissez-nous un message…"></textarea>
+            <textarea id="message" name="message" placeholder="Laissez-nous un message…" maxlength="2000"></textarea>
           </div>
 
           <button type="submit" class="btn btn--primary" id="submit-btn">Envoyer ma réponse</button>
