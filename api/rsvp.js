@@ -15,6 +15,11 @@
 //      mais aucun e-mail n'est envoyé (voir les logs Vercel).
 // =========================================================
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_LEN = 200;
+const MAX_MESSAGE_LEN = 2000;
+const MIN_FILL_TIME_MS = 1500;
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -28,9 +33,32 @@ module.exports = async (req, res) => {
     return res.status(200).json({ ok: true });
   }
 
+  // Filtre anti-bot : un humain met toujours plus de MIN_FILL_TIME_MS
+  // à remplir le formulaire ; un envoi trop rapide (ou sans horodatage,
+  // typique d'un appel direct à l'API) est traité comme du spam.
+  const fillTime = Date.now() - Number(data.ts || 0);
+  if (!Number.isFinite(fillTime) || fillTime < MIN_FILL_TIME_MS || fillTime > 24 * 60 * 60 * 1000) {
+    return res.status(200).json({ ok: true });
+  }
+
   const { prenom, nom, email, presence } = data;
   if (!prenom || !nom || !email || !presence) {
     return res.status(400).json({ error: 'Champs requis manquants.' });
+  }
+  if (!EMAIL_RE.test(String(email))) {
+    return res.status(400).json({ error: 'Adresse e-mail invalide.' });
+  }
+  if (!['Présent(e)', 'Absent(e)'].includes(presence)) {
+    return res.status(400).json({ error: 'Présence invalide.' });
+  }
+  const longFields = ['prenom', 'nom', 'email', 'regime', 'adultes', 'enfants',
+    'adulte_1', 'adulte_2', 'adulte_3', 'adulte_4', 'adulte_5',
+    'enfant_1', 'enfant_2', 'enfant_3', 'enfant_4'];
+  if (longFields.some((k) => String(data[k] || '').length > MAX_LEN)) {
+    return res.status(400).json({ error: 'Un champ dépasse la longueur autorisée.' });
+  }
+  if (String(data.message || '').length > MAX_MESSAGE_LEN) {
+    return res.status(400).json({ error: 'Message trop long.' });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
