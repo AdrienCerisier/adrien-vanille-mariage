@@ -136,14 +136,14 @@ module.exports = async (req, res) => {
   try {
     const [notifRes, guestRes] = await Promise.all([
       send({
-        from: 'Adrien & Vanille <mariage@adrien-vanille.fr>',
+        from: 'Adrien & Vanille <mariage@vanille-adrien.fr>',
         to: [coupleEmail],
         reply_to: email,
         subject: `🍊 Nouvelle réponse RSVP — ${prenom} ${nom} (${present ? 'Présent' : 'Absent'})`,
         html: notifHtml,
       }),
       send({
-        from: 'Adrien & Vanille <mariage@adrien-vanille.fr>',
+        from: 'Adrien & Vanille <mariage@vanille-adrien.fr>',
         to: [email],
         subject: present ? '🍊 Votre présence est confirmée — Adrien & Vanille' : 'Merci pour votre réponse — Adrien & Vanille',
         html: guestHtml,
