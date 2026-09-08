@@ -13,6 +13,10 @@
 //        COUPLE_EMAIL   = l'adresse qui doit recevoir chaque RSVP
 //   3. Sans ces variables, la fonction répond quand même 200 à l'invité,
 //      mais aucun e-mail n'est envoyé (voir les logs Vercel).
+//
+//  ✅ Domaine adrien-vanille.fr vérifié sur Resend (DNS via IONOS) :
+//     les e-mails partent désormais depuis mariage@adrien-vanille.fr
+//     au lieu du domaine sandbox onboarding@resend.dev.
 // =========================================================
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -132,14 +136,14 @@ module.exports = async (req, res) => {
   try {
     const [notifRes, guestRes] = await Promise.all([
       send({
-        from: 'Adrien & Vanille <onboarding@resend.dev>',
+        from: 'Adrien & Vanille <mariage@adrien-vanille.fr>',
         to: [coupleEmail],
         reply_to: email,
         subject: `🍊 Nouvelle réponse RSVP — ${prenom} ${nom} (${present ? 'Présent' : 'Absent'})`,
         html: notifHtml,
       }),
       send({
-        from: 'Adrien & Vanille <onboarding@resend.dev>',
+        from: 'Adrien & Vanille <mariage@adrien-vanille.fr>',
         to: [email],
         subject: present ? '🍊 Votre présence est confirmée — Adrien & Vanille' : 'Merci pour votre réponse — Adrien & Vanille',
         html: guestHtml,
