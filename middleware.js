@@ -1,6 +1,6 @@
 // =========================================================
-//  middleware.mjs — à placer à la RACINE du projet
-//  (même niveau que index.html / package.json, PAS dans /api)
+//  middleware.js — à placer à la RACINE du projet
+//  (même niveau que index.html / vercel.json, PAS dans /api)
 //
 //  Protège tout le site par une authentification HTTP Basic
 //  avec un mot de passe unique partagé (n'importe quel nom
@@ -11,11 +11,11 @@
 //   ajoutez : SITE_PASSWORD = le mot de passe à donner aux invités
 // =========================================================
 
-export const config = {
+module.exports.config = {
   matcher: '/:path*',
 };
 
-export default function middleware(request) {
+module.exports = function middleware(request) {
   const expectedPassword = process.env.SITE_PASSWORD;
 
   // Si aucune variable n'est définie, on n'applique pas de protection
@@ -45,4 +45,4 @@ export default function middleware(request) {
       'WWW-Authenticate': 'Basic realm="Site du mariage"',
     },
   });
-}
+};
