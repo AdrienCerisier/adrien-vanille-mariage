@@ -1,9 +1,27 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/Front/HTML/Index.html" },
-    { "source": "/rsvp", "destination": "/Front/HTML/rsvp.html" },
-    { "source": "/infos", "destination": "/Front/HTML/infos.html" },
-    { "source": "/faq", "destination": "/Front/HTML/faq.html" },
-    { "source": "/histoire", "destination": "/Front/HTML/histoire.html" }
-  ]
+    {
+      "source": "/",
+      "destination": "/Front/HTML/Index.html"
+    },
+    {
+      "source": "/rsvp",
+      "destination": "/Front/HTML/rsvp.html"
+    },
+    {
+      "source": "/infos",
+      "destination": "/Front/HTML/infos.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/Front/HTML/faq.html"
+    },
+    {
+      "source": "/histoire",
+      "destination": "/Front/HTML/histoire.html"
+    }
+  ],
+  "proxy": {
+    "entrypoint": "middleware.mjs"
+  }
 }
