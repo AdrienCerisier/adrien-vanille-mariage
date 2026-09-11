@@ -121,7 +121,7 @@ module.exports = async (req, res) => {
           <p style="margin:0;font-size:14px;color:#5C6035">📅 <strong>Samedi 7 août 2027</strong> · 15h00</p>
           <p style="margin:6px 0 0;font-size:14px;color:#5C6035">📍 Bosc Grimont — Le Manège, 76990 Le Bocasse</p>
         </div>
-        <p style="font-size:15px;line-height:1.6;color:#6b6058;margin:0 0 22px">Toutes les infos pratiques (accès, hébergement, programme) sont sur notre site. Une question ? Envoyez nous un mail à l'adresse mail suivante : adrien.et.vanille.mariage@gmail.com</br> ou vous pouvez nous joindre :</br>Vanille : 06.38.84.28.93</br>Adrien : 06.68.14.39.19</p>
+        <p style="font-size:15px;line-height:1.6;color:#6b6058;margin:0 0 22px">Toutes les infos pratiques (accès, hébergement, programme) sont sur notre site. Une question ? Envoyez nous un mail à l'adresse mail suivante : adrien.et.vanille.mariage@gmail.com<br> ou vous pouvez nous joindre :<br>Vanille : 06.38.84.28.93<br>Adrien : 06.68.14.39.19</p>
         <p style="font-size:16px;margin:0">En vous remerciant,<br><strong style="color:#E97857">Adrien &amp; Vanille</strong> ✦</p>
       </div>
     </div>
