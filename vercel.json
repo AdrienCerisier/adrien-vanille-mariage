@@ -22,6 +22,6 @@
     }
   ],
   "proxy": {
-    "entrypoint": "middleware.mjs"
+    "entrypoint": "middleware.js"
   }
 }
