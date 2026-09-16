@@ -18,6 +18,9 @@ const LOGIN_PATH = '/login';
 const COOKIE_NAME = 'site_auth';
 const MAX_AGE = 60 * 60 * 24 * 30; // 30 jours
 
+// Routes publiques, jamais protégées par le mot de passe
+const PUBLIC_PATHS = ['/api/calendar'];
+
 async function hashPassword(password) {
   const data = new TextEncoder().encode(password);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
@@ -67,12 +70,18 @@ function loginPageHtml(showError) {
 }
 
 module.exports = async function middleware(request) {
+  const url = new URL(request.url);
+
+  // Routes publiques : jamais protégées
+  if (PUBLIC_PATHS.includes(url.pathname)) {
+    return;
+  }
+
   const expectedPassword = process.env.SITE_PASSWORD;
   if (!expectedPassword) {
     return; // pas de protection configurée
   }
 
-  const url = new URL(request.url);
   const expectedHash = await hashPassword(expectedPassword);
 
   // Traitement de l'envoi du formulaire
