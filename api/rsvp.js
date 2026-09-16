@@ -118,13 +118,15 @@ module.exports = async (req, res) => {
         <div style="text-align:center;margin:0 0 22px">
           <a href="${GOOGLE_CALENDAR_URL}" target="_blank" rel="noopener"
              style="display:inline-block;background:#E97857;color:#fff;text-decoration:none;
-                    padding:12px 22px;border-radius:8px;font-size:14px;font-weight:bold">
-            📅 Ajouter à Google Calendar
+                    padding:12px 20px;border-radius:8px;font-size:14px;font-weight:bold;margin:0 6px 8px">
+            📅 Google Calendar
           </a>
-          <p style="font-size:13px;color:#6b6058;margin:10px 0 0">
-            Utilisateur Apple / Outlook ? La pièce jointe <strong>mariage.ics</strong> de cet e-mail
-            fait la même chose en un clic.
-          </p>
+          <a href="https://vanille-adrien.fr/api/calendar"
+             style="display:inline-block;background:#fff;color:#E97857;text-decoration:none;
+                    padding:12px 20px;border-radius:8px;font-size:14px;font-weight:bold;
+                    border:2px solid #E97857;margin:0 6px 8px">
+            🍎 Apple / Outlook
+          </a>
         </div>` : '';
 
   const guestHtml = `
